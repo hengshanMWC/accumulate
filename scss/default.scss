@@ -1,0 +1,22 @@
+html {
+  background-color: #fff;
+  font-family:PingFang SC;
+}
+input {-webkit-appearance: none;border: none;outline:none;}
+:focus{outline:0}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+button {
+  background: #fff;
+}
+ol {
+  padding-inline-start: 0;
+}
+input[type="number"]{
+  -moz-appearance: textfield;
+}
+a {
+  text-decoration: underline !important;
+}

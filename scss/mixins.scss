@@ -1,0 +1,77 @@
+// 图片背景
+@mixin bagAuto($url) {
+  background: url($url) no-repeat center;
+  background-size: 100% 100%;
+}
+@mixin bag($url, $color: transparent){
+  background: url($url) no-repeat $color;
+  background-size: 100%;
+}
+// 1px
+@mixin setLine($border-direction: all, $c: #C7C7C7, $border-radius: 0) {
+  position: relative;
+  &::before {
+    pointer-events: none;
+    box-sizing: border-box;
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 200%;
+    @if ($border-direction == all) {
+      border: 1PX solid $c;
+    } @else {
+      border-#{$border-direction}: 1PX solid $c;
+    }
+    color: $c;
+    height: 200%;
+    transform-origin: left top;
+    transform: scale(0.5);
+    border-radius: $border-radius;
+  }
+}
+@mixin layering ($c: #fff, $width: 1px,$attr: text) {
+  #{$attr}-shadow: -$width 0 $c, 0 $width $c, $width 0 $c, 0 #{-$width} $c;  
+}
+@mixin positionCenter ($position: relative) {
+  position: $position;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+// 实心箭头，默认显示上边框
+@mixin solidArrow($border: top,$arrowBorder: 15px, $c: #E1E1E1){
+  position: relative;
+  &::after {
+    border: solid $arrowBorder transparent;
+    border-#{$border}-color: $c;
+    content: " ";
+    top: 50%;
+    transform: translateY(-50%);
+    position: absolute;
+  }
+}
+// 配合bs
+@mixin corner40 ($position: absolute) {
+  position: $position;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+// 居中
+@mixin tran-xy ($position: absolute) {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: $position;
+}
+// 遮罩
+@mixin mz ($position: absolute, $opacity: .6) {
+  position: $position;
+  background-color: rgba(0, 0, 0, $opacity);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
