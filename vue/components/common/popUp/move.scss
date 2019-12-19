@@ -9,8 +9,14 @@ $time: .35s;
   opacity: 0;
 }
 // 弹窗方向，bottom，center
+.top-enter,
+.top-leave-to {
+  transform: translateY(-100%);
+}
 .bottom-enter-active,
-.bottom-leave-active {
+.bottom-leave-active,
+.top-enter-active,
+.top-leave-active {
   transition: transform $time;
 }
 .bottom-enter,

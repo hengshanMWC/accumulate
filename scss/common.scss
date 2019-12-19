@@ -25,3 +25,17 @@
   top: 50%;
   transform: translateY(-50%);
 }
+.a-dc {
+  animation: dc .5s infinite;
+  @keyframes dc {
+    from {
+      transform: scale(.95);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    to {
+      transform: scale(.95);
+    }
+  }
+}

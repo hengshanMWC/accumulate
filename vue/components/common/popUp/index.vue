@@ -1,10 +1,10 @@
 <template>
   <div>
     <transition name="fade">
-      <div class="pop-up night" v-show="show" @click="$emit('hide')" @touchmove.prevent></div>
+      <div class="pop-up night" v-show="show" @click="$emit('hide')" :style="{position: stylePosition}" @touchmove.prevent></div>
     </transition>
     <transition :name="position">
-      <div ref="pop" v-show="show" :class="position" class="slot-container">
+      <div ref="pop" v-show="show" :class="position" class="slot-container" :style="{position: stylePosition}">
         <slot></slot>
       </div>
     </transition>
@@ -21,9 +21,18 @@ export default {
   },
   props: {
     show: Boolean,
+    /**
+     * center
+     * bottom
+     * top
+     */
     position: {
       type: String,
       default: 'center' // bottom
+    },
+    stylePosition: {
+      type: String,
+      default: 'fixed'
     }
   },
   model: {
@@ -63,6 +72,10 @@ export default {
 }
 .bottom {
   bottom: 0;
+  left: 0;
+}
+.top {
+  top: 0;
   left: 0;
 }
 .center {
